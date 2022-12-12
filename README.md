@@ -17,6 +17,6 @@ You can also use [GitHub source](https://github.com/b9swift/Condition).
 
 ## Installation
 
-Using Swift Package Manager or import manually.
+You can use either Swift Package Manager or manual importing to add this package or module to your project.
 
 你也可以使用 [gitee 镜像](https://gitee.com/b9swift/Condition)。
