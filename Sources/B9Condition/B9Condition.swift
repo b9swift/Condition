@@ -21,7 +21,7 @@ import Foundation
 
  It always has a delay between status changing and observer triggering.
 
- Instance must be hold with strong refrence, or it will be released and all observe will be canceled immediately. With one exception:
+ Instance must be hold with strong reference, or it will be released and all observe will be canceled immediately. With one exception:
 
  - If there are actions being executed in other threads, this instance will be temporarily held.
 
@@ -35,7 +35,7 @@ public final class Condition<T: SetAlgebra> {
         self.queue = queue
     }
 
-    /// The defualt queue. Observer action is perfromed in this queue if not specified.
+    /// The default queue. Observer action is performed in this queue if not specified.
     public let queue: DispatchQueue
 
     /// Returns whether current states meets the given flags.
@@ -162,13 +162,13 @@ public final class Condition<T: SetAlgebra> {
 
         internal var debugDescription: String {
             let properties: [(String, Any?)] = [("flags", flags), ("queue", queue), ("shouldAutoRemove", shouldAutoRemove), ("action", action)]
-            let propertyDiscription = properties.compactMap { key, value in
+            let propertyDescription = properties.compactMap { key, value in
                 if let value = value {
                     return "\(key) = \(value)"
                 }
                 return nil
             }.joined(separator: ", ")
-            return "<Observer \(Unmanaged.passUnretained(self).toOpaque()): \(propertyDiscription)>"
+            return "<Observer \(Unmanaged.passUnretained(self).toOpaque()): \(propertyDescription)>"
         }
     }
 
@@ -197,12 +197,12 @@ public final class Condition<T: SetAlgebra> {
 extension Condition: CustomDebugStringConvertible {
     public var debugDescription: String {
         let properties: [(String, Any?)] = [("flags", flags), ("queue", queue), ("observers", observers)]
-        let propertyDiscription = properties.compactMap { key, value in
+        let propertyDescription = properties.compactMap { key, value in
             if let value = value {
                 return "\(key) = \(value)"
             }
             return nil
         }.joined(separator: ", ")
-        return "<Condition \(Unmanaged.passUnretained(self).toOpaque()): \(propertyDiscription)>"
+        return "<Condition \(Unmanaged.passUnretained(self).toOpaque()): \(propertyDescription)>"
     }
 }
